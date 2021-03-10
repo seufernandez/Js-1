@@ -25,21 +25,49 @@ var tdAltura = paciente.querySelector(".info-altura");
 //pegando txt
 var altura = tdAltura.textContent;
 
-//----calculando IMC--------------------------------
-
-//imc = peso/altura^2
-var imc = peso / (altura*altura); // 100/2*2
-
 
 //Colar imc na tabela
 var imcPaciente = paciente.querySelector(".info-imc")
 var imcFinal = imcPaciente.textContent
-imcPaciente.textContent = imc
+
+var pesoEhValido = true
+var AlturaEhValida = true
 
 
 //validação de peso--------------------------------
 if(peso < 0 || peso > 600){
     console.log("Peso inválido");
+    pesoEhValido = false
+
+    imcPaciente.textContent = "Peso Inválido" 
 }
+
+//validação de altura--------------------------------
+if(altura < 0 || altura > 3){
+    console.log("Altura inválida");
+    AlturaEhValida = false
+
+    imcPaciente.textContent = "Altura Inválida" 
+}
+
+//se os numeros de altura e peso forem validos, realize a operacion
+if(AlturaEhValida && pesoEhValido){
+
+    //----calculando IMC--------------------------------
+    
+    //imc = peso/altura^2
+    var imc = peso / (altura*altura); // 100/2*2
+    imcPaciente.textContent = imc
+}
+
+//se peso ou altura invalida vai mostrar na tela
+//se ambos forem
+if(pesoEhValido == false && AlturaEhValida == false){
+
+    imcPaciente.textContent = "Altura e peso Inválidos" 
+
+}
+
+
 
 console.log(imcPaciente)
