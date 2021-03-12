@@ -55,7 +55,9 @@ if (peso < 0 || peso > 600) {
   pesoEhValido = false;
 
   imcPaciente.textContent = "Peso Inválido";
-}
+
+
+  paciente.classList.add("paciente-invalido")}
 
 //validação de altura--------------------------------
 if (altura < 0 || altura > 3) {
@@ -63,12 +65,16 @@ if (altura < 0 || altura > 3) {
   AlturaEhValida = false;
 
   imcPaciente.textContent = "Altura Inválida";
+
+  paciente.classList.add("paciente-invalido")//mudar cor quando inválido pegando do css, a classe paciente-invalido esta no css e através do classlist.add u adiciono a classe do css no css ja existente, meio que atualizando ele. Mais fácil se quiser alterar algo na interface da pagina
 }
 
 //se peso ou altura invalida vai mostrar na tela
 //se ambos forem
 if (pesoEhValido == false && AlturaEhValida == false) {
   imcPaciente.textContent = "Altura e peso Inválidos";
+
+  paciente.classList.add("paciente-invalido")  
 }
 
 //se os numeros de altura e peso forem validos, realize a operacion
@@ -79,8 +85,5 @@ if (AlturaEhValida && pesoEhValido) {
   var imc = peso / (altura * altura); // 100/2*2
   imcPaciente.textContent = imc.toFixed(2); //toFixed pra colocar somente duas casas decimais no numeral
 }
-
-
-
 
 }
