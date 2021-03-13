@@ -81,5 +81,9 @@ if (pesoEhValido == false && AlturaEhValida == false) {
 if (AlturaEhValida && pesoEhValido) {
   //----calculando IMC--------------------------------
 
+  //imc = peso/altura^2  mudando o imc na tabela
+  var imc = peso / (altura * altura); // 100/2*2
+  imcPaciente.textContent = imc.toFixed(2); //toFixed pra colocar somente duas casas decimais no numeral
+}
 
 }
