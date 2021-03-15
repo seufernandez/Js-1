@@ -1,11 +1,11 @@
 //mudar o h1 pelo Js
 
-//pegar conteudo do .titulo
-var titulo = document.querySelector(".titulo");
-console.log(titulo.textContent);
+// //pegar conteudo do .titulo
+// var titulo = document.querySelector(".titulo");
+// console.log(titulo.textContent);
 
-// mudar o conteudo do h1/.titulo(se alguem quiser mudar o h1 p h2 vai poder por agora a variavel busca pela classe)
-titulo.textContent = "Aparecida Nutricionista";
+// // mudar o conteudo do h1/.titulo(se alguem quiser mudar o h1 p h2 vai poder por agora a variavel busca pela classe)
+// titulo.textContent = "Aparecida Nutricionista";
 
 //Calculadora IMC----------------------------------------------------------
 
@@ -31,13 +31,13 @@ for (var i = 0; i < pacientes.length; i++) {
   var imcPaciente = paciente.querySelector(".info-imc");
   var imcFinal = imcPaciente.textContent;
 
-  var pesoEhValido = true;
-  var AlturaEhValida = true;
+  var pesoEhValido = validaPeso(peso);//true or false
+  var AlturaEhValida = validaAltura(altura);
 
   //validação de peso--------------------------------
-  if (peso < 0 || peso > 600) {
+  if (!pesoEhValido) {
+
     console.log("Peso inválido");
-    pesoEhValido = false;
 
     imcPaciente.textContent = "Peso Inválido";
 
@@ -45,12 +45,9 @@ for (var i = 0; i < pacientes.length; i++) {
   }
 
   //validação de altura--------------------------------
-  if (altura < 0 || altura > 3) {
+  if (!AlturaEhValida) {
     console.log("Altura inválida");
-    AlturaEhValida = false;
-
     imcPaciente.textContent = "Altura Inválida";
-
     paciente.classList.add("paciente-invalido"); //mudar cor quando inválido pegando do css, a classe paciente-invalido esta no css e através do classlist.add u adiciono a classe do css no css ja existente, meio que atualizando ele. Mais fácil se quiser alterar algo na interface da pagina
   }
 
@@ -71,6 +68,25 @@ for (var i = 0; i < pacientes.length; i++) {
     imcPaciente.textContent = imc; 
   }
 }
+
+
+
+function validaPeso(peso){
+  if( peso >= 0 && peso < 1000 ){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+function validaAltura(altura){
+  if(altura > 0 && altura < 3){
+    return true;
+  }else{
+    return false;
+  }
+}
+
 
 //Boa pratica, transformar partes do código que possam ser reutilizadas
 function calculaImc (peso,altura){

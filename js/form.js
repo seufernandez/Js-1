@@ -32,6 +32,16 @@ botaoAdicionar.addEventListener("click", function (event) {
   //Criacao e montagem do tr
   var pacienteTr = montaTr(paciente); //pegou as informações dadas pelos inputs e colocou no objeto que depois foi levado ao var paciente que foi colocado na td e adotado pelo tr e depois adicionado na tabela pelo appendChild que adicionou o Tr todo na tabela, com todas suas tds
 
+
+
+  //---------Validação-------------------
+  if (!validaPaciente(paciente)){
+    console.log("Paciente Inválido");
+    return;//sai da funcao sem adicionar na tabela
+  }
+
+
+
   //colocando os valores para serem mostrados na tela/tabela
   var tabela = document.querySelector("#tabela-pacientes");
   tabela.appendChild(pacienteTr);
@@ -89,10 +99,20 @@ function montaTr(paciente) {
 
 
 
-function montaTd(dado, classe) {
+function montaTd(data, className) {
   var td = document.createElement("td");
-  td.textContent = dado;
-  td.classList.add(classe);
+  td.textContent = data;
+  td.classList.add(className);
 
   return td;
+}
+
+
+
+function validaPaciente(paciente){
+  if(validaPeso(paciente.peso) && validaAltura(paciente.altura)){
+    return true;
+  }else{
+    return false;
+  }
 }
