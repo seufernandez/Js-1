@@ -33,10 +33,14 @@ botaoAdicionar.addEventListener("click", function (event) {
   var pacienteTr = montaTr(paciente); //pegou as informações dadas pelos inputs e colocou no objeto que depois foi levado ao var paciente que foi colocado na td e adotado pelo tr e depois adicionado na tabela pelo appendChild que adicionou o Tr todo na tabela, com todas suas tds
 
 
-
   //---------Validação-------------------
-  if (!validaPaciente(paciente)){
-    console.log("Paciente Inválido");
+
+  var erro = validaPaciente(paciente);
+
+
+  if (erro.length > 0 ){
+    var mensagemErro = document.querySelector("#mensagem-erro")
+    mensagemErro.textContent = erro;
     return;//sai da funcao sem adicionar na tabela
   }
 
@@ -110,9 +114,23 @@ function montaTd(data, className) {
 
 
 function validaPaciente(paciente){
-  if(validaPeso(paciente.peso) && validaAltura(paciente.altura)){
-    return true;
+
+  var erros = [
+    
+  ]
+
+  if(validaPeso(paciente.peso)){
+    return "";
   }else{
-    return false;
+    return "O peso é inválido";
   }
+
+  if (validaAltura(paciente.altura)){
+    return ""
+
+  }else{
+    return ""
+  }
+
+
 }
