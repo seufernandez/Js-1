@@ -53,7 +53,7 @@ section h2{
 
 @media screen and (max-width: 400px){
 	section h2{
-		font-size: 15em;
+		font-size: 5em;
 	}
 }
 
@@ -150,5 +150,9 @@ button[disabled=disabled], button:disabled {
 
 /* mudando o css pelo js ===========*/
 .paciente-invalido{
+	color: red;
+}
+
+#mesagem-erro{
 	color: red;
 }

@@ -115,8 +115,8 @@ function montaTd(data, className) {
 
 function validaPaciente(paciente){
 
-  var erros = [
-    
+  var erros = [ // 6;20 minutoissssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
   ]
 
   if(validaPeso(paciente.peso)){
