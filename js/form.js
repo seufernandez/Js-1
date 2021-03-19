@@ -30,7 +30,7 @@ botaoAdicionar.addEventListener("click", function (event) {
   console.log(paciente);
 
         //Criacao e montagem do tr
-  var pacienteTr = montaTr(paciente); //pegou as informações dadas pelos inputs e colocou no objeto que depois foi levado ao var paciente que foi colocado na td e adotado pelo tr e depois adicionado na tabela pelo appendChild que adicionou o Tr todo na tabela, com todas suas tds
+  // var pacienteTr = montaTr(paciente); //pegou as informações dadas pelos inputs e colocou no objeto que depois foi levado ao var paciente que foi colocado na td e adotado pelo tr e depois adicionado na tabela pelo appendChild que adicionou o Tr todo na tabela, com todas suas tds
 
 
   //---------Validação-------------------
@@ -46,16 +46,18 @@ console.log(erros);
     return;//sai da funcao sem adicionar na tabela
   }
 
-
-
-        //colocando os valores para serem mostrados na tela/tabela
-  var tabela = document.querySelector("#tabela-pacientes");
-  tabela.appendChild(pacienteTr);
-
+  adicionaPacienteNaTabela(paciente)
         //resetar os campos depois de adicionar
   form.reset();
 });
 
+
+ 
+function adicionaPacienteNaTabela(paciente) {
+  var pacienteTr = montaTr(paciente);
+  var tabela = document.querySelector("#tabela-pacientes");
+  tabela.appendChild(pacienteTr);
+}
 
 
 function exibeMensagemDeErro(erros){

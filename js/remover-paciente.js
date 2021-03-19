@@ -1,5 +1,9 @@
 var pacientes = document.querySelectorAll(".paciente")
 
+
+const MEIO_SEGUNDO = 500
+
+
 // pacientes.forEach(function(paciente){
 //     paciente.addEventListener("dblclick", function(){
 //         this.remove();//this = paciente, pois é o dono do evento
@@ -20,6 +24,6 @@ tabela.addEventListener("dblclick", function(event){// event tem a propriedade d
     setTimeout(function(){
         
         event.target.parentNode.remove()// seleciona o pai de quem foi clicado e o remove, no caso o pai é o tr
-    }, 500)
+    }, MEIO_SEGUNDO)
 
 });
